@@ -4,7 +4,6 @@ const reviews = (state=[], action) => {
       return [
         ...state, {
           id: action.id,
-          item_id: action.item_id,
           reviewer: action.reviewer,
           text: action.text,
           rating: action.rating,
@@ -21,5 +20,3 @@ const reviews = (state=[], action) => {
       return state;
   }
 }
-
-export default reviews;
