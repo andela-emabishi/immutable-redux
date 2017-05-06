@@ -4,7 +4,7 @@ import {expect} from 'chai';
 // const chai = require('chai');
 // const should = chai.should();
 
-import reviews from '../reducers/es5/reviews';
+import reviews from '../src/reducers/es5/reviews';
 // import reviews from '../reducers/immutableJS/reviews';
 
 describe('Review reducer tests', () => {
