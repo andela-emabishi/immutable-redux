@@ -84,24 +84,24 @@ describe('Review reducer tests', () => {
       { id: 3, reviewer: 'Gollum', text: `Preciousss`, rating: 1, flag: true },
     ];
     deepFreeze(state);
+    const action = { type: 'FLAG_REVIEW', id: 2, flag: true };
+    const newState = reviews(state, action);
     it('Should return a new state object', () => {
-      const action = { type: 'FLAG_REVIEW', id: 2, flag: true };
-      const newState = reviews(state, action);
       expect(newState).not.to.equal(state);
     });
     it('Should return a state object with the specified review\'s flag property changed', () => {
-      const action = { type: 'FLAG_REVIEW', id: 2, flag: true };
-      const newState = reviews(state, action);
       expect(newState[1].flag).to.equal(true);
     });
   });
 
   describe('RATE_REVIEW TESTS', () => {
+    const action = { type: 'RATE_REVIEW', id: 1, rating: 5 }
+    const newState = reviews(state, action);
     it('Should return a new state object', () => {
-
+      expect(newState).to.not.equal(state); // will assert that objects are not in the same slice of memeory
     });
     it('Should return a state object with the specified review with the correct rating', () => {
-
+      expect(newState[0].rating).to.equal(5);
     });
   });
 });
