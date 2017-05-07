@@ -1,6 +1,8 @@
+import types from '../../actionTypes';
+
 const reviews = (state=[], action) => {
   switch (action.type) {
-    case 'ADD_REVIEW':
+    case types.reviews.ADD_REVIEW:
       return [
         ...state, {
           id: action.id,
@@ -11,14 +13,14 @@ const reviews = (state=[], action) => {
           flag: false
         }
       ]
-    case 'DELETE_REVIEW':
+    case types.reviews.DELETE_REVIEW:
       return state.filter(review => review.id !== action.id);
-    case 'FLAG_REVIEW':
+    case types.reviews.FLAG_REVIEW:
       return state.map(review => review.id === action.id ? Object.assign({}, review, { flag: action.flag}): review)
-    case 'RATE_REVIEW':
+    case types.reviews.RATE_REVIEW:
       return state.map(review => review.id === action.id ? {...review, rating: action.rating }: review)
     default:
-      return state;
+      return sretate;
   }
 }
 
