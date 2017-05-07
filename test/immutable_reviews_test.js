@@ -1,5 +1,4 @@
-const deepFreeze = require('deep-freeze');
-import {expect} from 'chai';
+import { expect } from 'chai';
 import { List, Map } from 'immutable';
 
 import reviews from '../src/reducers/immutableJS/reviews';
@@ -32,11 +31,7 @@ describe('With immutable Review reducer tests', () => {
   });
 
   describe('DELETE_REVIEW TESTS', () => {
-    const action = {
-      type: 'DELETE_REVIEW',
-      id: 3,
-      item_id: '200'
-    };
+    const action = { type: 'DELETE_REVIEW', id: 3, item_id: '200' };
     it('Should return a new state object when deleting a review', () => {
       expect(state.size).to.equal(3);
     });
@@ -58,7 +53,7 @@ describe('With immutable Review reducer tests', () => {
       expect(newState.get(1).flag).to.equal(true);
     });
   });
-//
+
   describe('RATE_REVIEW TESTS', () => {
     const action = { type: 'RATE_REVIEW', id: 1, item_id: '200', rating: 5 }
     const newState = reviews(state, action);
